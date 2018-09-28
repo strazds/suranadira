@@ -6,17 +6,19 @@
 class Encryptor
 {
    private $secret;
+   private $salt;
    private $cipherMethod;
    private $separator;
    private $ivLength;
 
    public function __construct(
        $secret = 'hZhs(D)_dUI29955',
+       $salt = 'hZhs(D)_dUItj29557',
        $cipherMethod = 'AES-256-CBC',
        $separator = '::'
    ) {
 		 	 $salt = "hZhs(D)_dUItj29557";
-       $this->secret = $salt . $secret;
+       $this->secret = $this->salt . $secret;
        $this->cipherMethod = $cipherMethod;
        $this->separator = $separator;
        $this->ivLength = openssl_cipher_iv_length($cipherMethod);
