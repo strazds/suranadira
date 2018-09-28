@@ -2,13 +2,6 @@
 // no direct access
 defined( '_ZEXEC' ) or die( 'Access restricted' );
 
-// defined( '_ZCONFIG' ) or require_once "../config.php";
-
-// require_once "interface.dal.php";
-
-/// require_once "class.dal_context.php";
-
-// class ZDal extends ZDalContext implements ZDal_Interface {
 class ZDal {
 
 	private $stmt = null;

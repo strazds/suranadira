@@ -1,4 +1,4 @@
-var blocks = [];
+var blocks = []; 
 
 var fields = [
   "preloadedPosition",

@@ -2,7 +2,7 @@
 Native FullScreen JavaScript API
 -------------
 Assumes Mozilla naming conventions instead of W3C for now
-*/
+*/ 
 
 (function() {
 	var
