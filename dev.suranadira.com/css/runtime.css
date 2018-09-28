@@ -1,0 +1,91 @@
+html, body {
+  overflow: auto !important;
+}
+
+@media only screen and (min-width:480px) {
+  input.titlebar-button {
+    min-width: 120px;
+  }
+}
+
+table.properties {
+  background: white;
+  color: #333;
+  border: none;
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 600px;
+}
+
+table.properties td {
+  padding: 10px;
+  border-left: 1px solid #ccc;
+}
+
+span#changed {
+  font-size: 0.85em;
+}
+
+table.properties tr.categories-selector {
+  border-bottom: 1px solid #ccc;
+}
+
+table.properties td:first-child {
+  border-left: none !important;
+}
+
+table.properties td.param {
+  width: 50%;
+  min-width: 100px;
+  max-width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+span.value {
+  white-space: nowrap;
+}
+
+table.properties select {
+  width: 100%;
+}
+
+table.properties #cmd_ok, table.properties #cmd_reset {
+  /* width: 48%; */
+}
+
+table.properties select {
+  border:0px;
+  outline:0px;
+  background: none;
+}
+
+table.properties tr.titlebar {
+  background: #154360 !important;
+  color: #eee !important;
+  white-space: nowrap;
+}
+
+table.properties input[type=button] {
+  color: #333;
+}
+
+table.properties tr:nth-child(odd){
+  background-color: #eee;
+  /* color: #fff; */
+}
+
+span.title {
+  /* display: inline-block; */
+  /* height: 1em; */
+  /* width: 100%; */
+  float: left;
+  /* background: red; */
+}
+
+span.titlebar-buttons {
+  /* display: inline-block; */
+  float: right;
+  /* background: green; */
+}
