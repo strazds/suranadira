@@ -1,7 +1,7 @@
 var sura, properties,
 courses = ["Introduction", "Syllables", "Phases", "Philosophy"];
 
-$( document ).ready(function() {
+$( document ).ready(function() { 
   // activateSharedWorker();
   sura = new Suranadira({"classEnabled": false});
   properties = sura.getProperties();
