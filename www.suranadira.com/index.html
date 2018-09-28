@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=0.5" />
+	<title>Suranadira</title>
+	<link href="gfx/rc.ico" rel="shortcut icon" type="image/x-icon" />
+	<link href="css/normalize.css" rel="stylesheet" />
+	<link href="css/main.css" rel="stylesheet" />
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-124418866-1"></script>
+	<script src="js/gtag.js"></script>
+</head>
+<body id="body" class="hidden" style="">
+	<div class="hidden">
+		<canvas class="canvas-1" id="canvas_sura" class="hidden"></canvas>
+		<div id="reload"></div>
+	</div>
+  <table class="screen">
+    <tr>
+      <td align="left">
+				<div id="debug" class="hidden"></div>
+				<div id="stage">
+					<div id="info" style="text-align: center;" class=""></div>
+					<img class="buffer" id="buffer2" class="" />
+					<img class="buffer" id="buffer" class="" />
+					<img class="score" id="score2" src="" width="auto" height="" alt="" />
+					<img class="score" id="score" src="" width="auto" height="" alt="" />
+					<canvas class="canvas-2" id="canvas_circles" class=""></canvas>
+					<div id="pentade-selector-container"><div id="pentade-selector" class="hidden"></div></div>
+					<canvas class="canvas-2" id="canvas_rc"></canvas>
+				</div>
+      </td>
+    </tr>
+  </table>
+	<script src="plugins/audio/AudioContextMonkeyPatch.js"></script>
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/jcanvas.min.js"></script>
+	<script src="plugins/big.js/big.min.js"></script>
+	<script src="js/cookie.js"></script>
+	<script src="model/class.suranadira.js?v=1.0.0"></script>
+	<script src="js/fullscreen.js"></script>
+	<script src="js/main.js"></script>
+</body>
+</html>
