@@ -2324,7 +2324,7 @@ class Suranadira {
   }
 
   synchronizeSuranadira(position) {
-    if (this.overridePentade != null) return;
+    if (this.overridePentade != null || this.scoreEnabled) return;
     var this_ = this;
     var expectedPosition = null;
     expectedPosition = this.getPosition();
