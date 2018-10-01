@@ -1,24 +1,4 @@
 var prevConfiguration = null;
-// var socket = io.connect('/');
-// var socket = io.connect('https://dev.suranadira.com:3000');
-// addListener();
-// var socket = io.connect('https://dev.suranadira.com:8080');
-
-// setTimeout(function(){
-//   var client = new WebSocket('wss://dev.suranadira.com:3000/', 'echo-protocol');
-// }, 1000);
-
-// var socket = new WebSocket('wss://dev.suranadira.com:8080/');
-
-// ws.on('open', function open() {
-//   ws.send('something');
-// });
-//
-// ws.on('message', function incoming(data) {
-//   console.log(data);
-// });
-
-// var client = new W3CWebSocket('wss://dev.suranadira.com:8080', 'echo-protocol');
 
 onmessage = function(e) {
   if (!e.isTrusted) return;
