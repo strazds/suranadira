@@ -134,7 +134,7 @@ class Suranadira {
      */
     properties = {
       "priority": this.priorities.characters,
-      "trimCharacters": false,
+      "trimCharacters": false, // false,
       "markLevels": [1], // [1, 2, 3, 4],
       "markElements": [0, 1, 5],
       "phaseMode": this.phases.roots, // words radicals
@@ -264,6 +264,7 @@ class Suranadira {
     this.animationTempo = this.scoreTempo / 4; // 1318.359375; // Math.round(this.scoreTempo * 0.618)
     this.offsetY = this.unit / 2;
     this.groups = Math.floor(this.height / this.voicesPerGroup);
+    this.trimCharacters = (this.voicesEnabled || this.circlesEnabled) && this.charactersEnabled;
     this.updateCircles();
     this.updateScore();
   }
