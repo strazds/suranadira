@@ -8,6 +8,7 @@ if (!is_null($guid)) {
 	if (!is_numeric($user_id)) $user_id = 1; // default user
 	// echo "User ID: {$user_id}";
 }
+// $user_id = 41; // override
 ?>
 <!DOCTYPE html>
 <html lang="en">

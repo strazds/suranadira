@@ -1607,7 +1607,8 @@ class Suranadira {
               this_.workerRuntime.postMessage(["retrieve-configuration", this_.user]);
               break;
             case "configuration":
-              // console.log("configuration");
+              // console.log("configuration for user " + this_.user);
+              // console.log(e.data[1]);
               this_.loadConfiguration(e.data[1]);
               if (!this_.isInitialized) this_.initAndLoadEvents();
               break;
