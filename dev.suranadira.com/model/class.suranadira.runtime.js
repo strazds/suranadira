@@ -49,7 +49,7 @@ function retrieveUser(user, guid, code) {
     return;
   } else {
     var data = {"guid": guid, "code": code};
-    console.log(data);
+    // console.log(data);
     request("user", "../controller/user_retrieve.php", data);
   }
 }
