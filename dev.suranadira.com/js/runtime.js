@@ -1,7 +1,7 @@
 var sura, properties,
 courses = ["Introduction", "Syllables", "Phases", "Philosophy"];
 
-$( document ).ready(function() { 
+$( document ).ready(function() {
   // activateSharedWorker();
   sura = new Suranadira({"classEnabled": false});
   properties = sura.getProperties();
@@ -72,7 +72,8 @@ function createControls() {
         "Philosophy": ["number", "array", {
           "none": -1,
           "noumena": 0,
-          "phenomena": 1
+          "phenomena": 1,
+          "experience": 2
         }]
       },
 
@@ -333,7 +334,7 @@ function loadEvents() {
         $("#unit option[key='Large']").prop('selected', true);
         $("#endLevel option[key^='Three']").prop('selected', true);
         $("#scoreEnabled option[key='True']").prop('selected', true);
-        $("#circlesEnabled option[key='True']").prop('selected', true);
+        // $("#circlesEnabled option[key='True']").prop('selected', false); // true
       }
       else if (value == "2") { // Characters
         $("#priority option[key^='characters']").prop('selected', true);
@@ -394,15 +395,27 @@ function loadEvents() {
     else if (param == "Philosophy") {
 
       // Section specific commands
-      $("#charactersEnabled option[key='True']").prop('selected', true);
-      $("#voicesEnabled option[key='True']").prop('selected', true);
-      $("#circlesEnabled option[key='True']").prop('selected', true);
 
       if (value == "0") { // noumena
+        $("#charactersEnabled option[key='True']").prop('selected', true);
+        $("#voicesEnabled option[key='True']").prop('selected', true);
         $("#priority option[key^='characters']").prop('selected', true);
+        $("#scoreEnabled option[key='True']").prop('selected', false);
+        $("#circlesEnabled option[key='True']").prop('selected', true);
       }
       else if (value == "1") { // phenomena
+        $("#charactersEnabled option[key='True']").prop('selected', true);
+        $("#voicesEnabled option[key='True']").prop('selected', true);
         $("#priority option[key^='voices']").prop('selected', true);
+        $("#scoreEnabled option[key='True']").prop('selected', false);
+        $("#circlesEnabled option[key='True']").prop('selected', true);
+      }
+      else if (value == "2") { // experience
+        $("#priority option[key^='voices']").prop('selected', true);
+        $("#unit option[key='Large']").prop('selected', true);
+        $("#endLevel option[key^='Three']").prop('selected', true);
+        $("#scoreEnabled option[key='True']").prop('selected', true);
+        $("#circlesEnabled option[key='True']").prop('selected', true);
       }
     }
 
