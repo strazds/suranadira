@@ -1,4 +1,4 @@
-var blocks = []; 
+var blocks = [];
 
 var fields = [
   "preloadedPosition",
@@ -18,6 +18,7 @@ var fields = [
   "loadScoreFromBuffer",
   "currentPosition",
   "startPositionDay",
+  "userID",
   "test"
 ];
 
@@ -105,6 +106,10 @@ blocks["debug"] = `
         <tr>
           <td>startPositionDay</td>
           <td><div id="startPositionDay"></div></td>
+        </tr>
+        <tr>
+          <td>userID</td>
+          <td><div id="userID"></div></td>
         </tr>
         <tr>
           <td>test</td>

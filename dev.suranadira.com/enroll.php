@@ -1,1 +1,5 @@
-<?php echo "enroll"; ?>
+<?php
+
+echo "enroll";
+
+?>
