@@ -256,6 +256,8 @@ class Suranadira {
 
   recalculateProperties() {
     // console.log("recalculateProperties");
+    // var thisStageHeight = this.score.prop("height"); // this.getStageHeight(true);
+    // console.log("ATT: " + thisStageHeight);
     this.height = this.endLevel - this.startLevel + 1;
     this.radiusCircles = Math.round(18 / 100 * this.unit); // 20
     this.positionsPerDay = 5 * this.pentadesPerDay;
@@ -328,6 +330,7 @@ class Suranadira {
         this.canvasCircles.stopLayer('circle' + y);
         this.canvasCircles.animateLayer('circle' + y, {
           y: vy * this.unit + this.offsetY + half_stroke_width
+          // y: vy * 30 + this.offsetY + half_stroke_width
           // opacity: this.opacityCircles
         }, {
           duration: this_.animationTempo,
@@ -828,9 +831,11 @@ class Suranadira {
     * @return {void}
     */
    drawCircles() {
+     if (this.scoreEnabled) return;
      // if (!this.circlesEnabled) return;
      var obj, colors = this.colors, voice = 0, color = 0;
      var half_stroke_width = this.strokeWidthVoices / 2;
+     /// this.unit = 38;
      // var half_stroke_width = this.strokeWidth / 2;
      // console.log(this.priority == this.priorities.voices || this.priority == this.priorities.both);
      // if (this.priority == this.priorities.voices || this.priority == this.priorities.both) colors = this.colors;
@@ -847,6 +852,13 @@ class Suranadira {
      var x = this.bufferTime + 0 + this.circlesOffsetX;
      var vy;
      // var thisOpacity;
+     // console.log("height: " + this.height);
+     // console.log("unit: " + this.unit);
+     // console.log("stageHeight: " + this.stageHeight);
+     // console.log("stageWidth: " + this.stageWidth);
+     // console.log("stageTop: " + this.stageTop);
+     // console.log("circlesOffsetX: " + this.circlesOffsetX);
+     // console.log("bufferMarginX: " + this.bufferMarginX);
      for (var y = 0; y < this.height; y++) {
        // thisOpacity = this.circlesEnabled ? this.opacityCircles : 0;
        // if (y < this.startExcerptVoices || y > this.endExcerptVoices) thisOpacity = 0;
@@ -856,9 +868,36 @@ class Suranadira {
        color = this.getVoiceColor(x, y);
        obj["fillStyle"] = colors[color];
        obj["y"] = this.unit * vy + this.offsetY + half_stroke_width;
+       // obj["y"] = 30 * vy + this.offsetY + half_stroke_width;
        // obj["opacity"] = 0 // thisOpacity;
        this.canvasCircles.drawArc(obj);
      }
+   }
+
+   drawConductorLine(canvas, color) {
+     if (!this.scoreEnabled) return;
+     color = color | 0;
+     var colors = this.colors,
+        x = this.unit * 3; // this.bufferTime + 0 + this.circlesOffsetX;
+
+     var obj = {
+       layer: true,
+       name: "conductor_line",
+       // groups: "",
+       // strokeStyle: this.colors[color],
+       strokeStyle: colors[color],
+       // strokeStyle: thisHex,
+       rounded: false,
+       closed: false,
+       opacity: 0.7, // this.opacityCharacters,
+       strokeWidth: 3 // this.strokeWidth
+     };
+     obj['x1'] = x;
+     obj['y1'] = 0;
+     obj['x2'] = x;
+     obj['y2'] = this.stageHeight;
+
+     canvas.drawLine(obj);
    }
 
    /**
@@ -1349,6 +1388,7 @@ class Suranadira {
      * Reloads Suranadira if the stage dimensions have changed
      */
     $(window).resize(function(e) {
+      // if (this_.scoreEnabled) return;
       if (!this_.haveStageDimensionsChanged()) return;
       // console.log("Resize");
       clearTimeout(this_.timerWindowResizing);
@@ -1471,6 +1511,7 @@ class Suranadira {
     // console.log("beatCurrent (A): " + this.beatCurrent);
     this.workerRuntime.postMessage(["retrieve-metronome", this.user, this.partCurrent, this.pageCurrent]);
     // this.showDebugInfo("test", this.pageCurrent);
+    this.drawConductorLine(this.canvasCircles, 0);
   }
 
   getScorePosition(position) {
@@ -1605,6 +1646,7 @@ class Suranadira {
               // console.log("user: " + this_.user);
               // this_.user = 1; // override
               this_.workerRuntime.postMessage(["retrieve-configuration", this_.user]);
+              this_.showDebugInfo("userID", this_.user);
               break;
             case "configuration":
               // console.log("configuration for user " + this_.user);
@@ -2314,6 +2356,7 @@ class Suranadira {
     this.score2.prop("height", this.scoreHeight);
     this.score.prop("height", this.scoreHeight);
     this.pageScale = (1650 - 260) / this.scoreHeight; // 255 = $trim_top + $trim_bottom in get_png.php
+    // console.log("this.scoreHeight: " + this.scoreHeight);
   }
 
   showInfo(text) {
