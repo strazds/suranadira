@@ -1,5 +1,5 @@
 var sura, properties,
-courses = ["Introduction", "Syllables", "Phases", "Philosophy"];
+courses = ["Introduction", "Syllables", "Phases", "Components", "Philosophy"];
 
 $( document ).ready(function() {
   // activateSharedWorker();
@@ -68,6 +68,14 @@ function createControls() {
           "radicals": 1,
           "roots": 2,
           "words": 3
+        }],
+        "Components": ["number", "array", {
+          "none": -1,
+          "cycleLevel1": 0,
+          "cycleLevel2": 1,
+          "cycleLevel3": 2,
+          "cycleLevel4": 3,
+          "allCycles": 4
         }],
         "Philosophy": ["number", "array", {
           "none": -1,
@@ -390,6 +398,37 @@ function loadEvents() {
       else if (value == "3") {
         $("#phaseMode option[key^='words']").prop('selected', true);
       }
+    }
+
+    else if (param == "Components") {
+
+      // Section specific commands
+      $("#charactersEnabled option[key='True']").prop('selected', true);
+      $("#colors option[key^='HighContrast']").prop('selected', true);
+      $("#phaseMode option[key^='none']").prop('selected', true);
+      $("#priority option[key^='characters']").prop('selected', true);
+
+      if (value == "0") { // cycleLevel1
+        $("#charactersColorCodingMode option[key^='someComponentCycles']").prop('selected', true);
+        $("#markLevels option[key='First']").prop('selected', true);
+      }
+      else if (value == "1") { // cycleLevel2
+        $("#charactersColorCodingMode option[key^='someComponentCycles']").prop('selected', true);
+        $("#markLevels option[key='Second']").prop('selected', true);
+      }
+      else if (value == "2") { // cycleLevel3
+        $("#charactersColorCodingMode option[key^='someComponentCycles']").prop('selected', true);
+        $("#markLevels option[key='Third']").prop('selected', true);
+      }
+      else if (value == "3") { // cycleLevel4
+        $("#charactersColorCodingMode option[key^='someComponentCycles']").prop('selected', true);
+        $("#markLevels option[key='Fourth']").prop('selected', true);
+      }
+      else if (value == "4") { // allCycles
+        $("#charactersColorCodingMode option[key^='allComponentCycles']").prop('selected', true);
+        $("#markLevels option[key='None']").prop('selected', true);
+      }
+
     }
 
     else if (param == "Philosophy") {
