@@ -107,6 +107,16 @@ canvas.canvas-2 {
 	position: absolute;
 }
 
+canvas.canvas-exercise {
+	position: absolute;
+	display: none;
+	top: 0px; 
+	width: 100%;
+	height: 100%;
+	background: #333;
+	z-index: 1001;
+}
+
 div#pentade-selector-container {
 	position: absolute;
 	white-space: nowrap;
