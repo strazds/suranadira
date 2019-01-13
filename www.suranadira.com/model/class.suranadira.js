@@ -1624,7 +1624,7 @@ class Suranadira {
     } else {
       this.workerRuntime.postMessage(["retrieve-configuration", this.user]);
     }
-    if (0) {
+    if (0) { // Updates metronome positions in DB, NB: DOes NOT pre-caches the combined PNGs
       this.workerRuntime.postMessage(["save-metronome", 1]);
     }
     this.workerRuntime.onmessage = function(e) {
